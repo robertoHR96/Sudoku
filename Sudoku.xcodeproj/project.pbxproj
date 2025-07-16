@@ -86,11 +86,12 @@
 				};
 			};
 			buildConfigurationList = 62325D972DDB3F6700E92C6D /* Build configuration list for PBXProject "Sudoku" */;
-			developmentRegion = en;
+			developmentRegion = es;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 62325D932DDB3F6700E92C6D;
 			minimizedProjectReferenceProxies = 1;

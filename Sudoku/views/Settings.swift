@@ -6,11 +6,15 @@
 //
 import SwiftUI
 struct Settings: View {
+    @EnvironmentObject var tableroViewModel: TableroViewModel
     var body: some View {
-        Text("Ajustes")
+        Text("Ajustes").onAppear {
+            tableroViewModel.stopTimer()
+        }
     }
 }
 
 #Preview{
     Settings()
+        .environmentObject(TableroViewModel())
 }
