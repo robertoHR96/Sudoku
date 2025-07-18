@@ -52,9 +52,7 @@ struct Celda: View {
     var body: some View {
         Button {
             // Acción al pulsar la celda: seleccionar esta posición
-            if(!isSelected){
                 tableroViewModel.selectCell(row: fila, column: columna)
-            }
         } label: {
             Text(valor)
                 .font(.system(size: 33))
@@ -153,7 +151,7 @@ struct Buttons: View {
             ForEach(1..<10) { i in
                 Button {
                     tableroViewModel.modCell(valor: i)
-                    tableroViewModel.onSelectCell() // Deselecciona la celda tras insertar
+                    //tableroViewModel.onSelectCell() // Deselecciona la celda tras insertar
                 } label: {
                     Text(String(i))
                         .font(.system(size: 33))

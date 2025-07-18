@@ -125,11 +125,13 @@ class TableroViewModel: ObservableObject {
     /// y comprueba si el tablero sigue válido tras la modificación.
     func modCell(valor: Int) {
         if let row = model.selectedRow, let col = model.selectedColumn, row >= 0 || col >= 0 {
+            if(!model.board[row][col].estado){
             addHistory(newFila: row, newColumna: col, valor: model.board[row][col].valor)
             model.modCell(valor: valor)
             model.board[row][col].fallida = valor != model.boardComplete[row][col].valor
             objectWillChange.send()
             isGameFinished = comprobar()
+            }
         }
     }
     
