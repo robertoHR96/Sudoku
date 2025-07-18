@@ -12,6 +12,7 @@ import SwiftData
 struct ContentView: View {
     /// ViewModel principal del tablero, gestionando estado y lógica del Sudoku.
     @StateObject var tableroViewModel = TableroViewModel()
+    @EnvironmentObject var localizationManager: LocalizationManager
     
     var body: some View {
         TabView {
@@ -19,7 +20,7 @@ struct ContentView: View {
             Game()
                 .tabItem {
                     Image(systemName: "house")   // Icono de casa para la pestaña "Game"
-                    Text("Game")                 // Etiqueta de la pestaña
+                    Text("Game".localized(for: localizationManager.language))                 // Etiqueta de la pestaña
                 }
                 .environmentObject(tableroViewModel) // Proporciona acceso al ViewModel
             
@@ -27,7 +28,7 @@ struct ContentView: View {
             Settings()
                 .tabItem {
                     Image(systemName: "gear")    // Icono de engranaje para la pestaña "Ajustes"
-                    Text("Ajustes")              // Etiqueta de la pestaña
+                    Text("Settings".localized(for: localizationManager.language))              // Etiqueta de la pestaña
                 }
                 .environmentObject(tableroViewModel) // También recibe el ViewModel
         }
@@ -43,4 +44,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(LocalizationManager())
 }

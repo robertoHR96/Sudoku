@@ -33,11 +33,14 @@ struct SudokuApp: App {
         }
     }()
    
+    @StateObject var localizationManager = LocalizationManager()
+   
     /// Definición de la interfaz principal de la aplicación.
     /// Se muestra `ContentView` dentro de una ventana, y se pasa el contenedor de datos al entorno.
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(localizationManager)
         }
         // Asocia el contenedor de modelo al entorno para que las vistas puedan acceder a los datos
         .modelContainer(sharedModelContainer)
